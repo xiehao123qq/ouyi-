@@ -33,7 +33,7 @@ def ma(zhouqi):
 
     # 打印完整数据以检查
         print(df[['ts', 'close']])
-    # 计算MA30
+    # 计算MA
         df['MA'] = df['close'].rolling(window=zhouqi).mean()
 
     # 输出时间、收盘价和MA30
@@ -43,4 +43,4 @@ def ma(zhouqi):
     else:
         print(f"请求失败，状态码: {response.status_code}, 错误信息: {response.text}")
 
-aaa=ma(5)
+aaa=ma(30)
