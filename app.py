@@ -6,5 +6,5 @@ while True:
     if -6 <= sum <= 6:
         print("报警")
     else:
-        print(sum)
+        print(f"当前差值:{sum}")
 
