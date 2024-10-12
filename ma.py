@@ -5,7 +5,7 @@ def ma(zhouqi):
     base_url = 'https://www.okx.com/api/v5/market/candles'
     params = {
     'instId': 'BTC-USDT',  # 产品ID，如 BTC-USDT
-    'bar': '1Dutc',           # 时间粒度（1天K线）
+    'bar': '1m',           # 时间粒度（1天K线）
     'limit': '500'    # 获取100条数据（确保覆盖30天）
 
             }
