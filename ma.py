@@ -48,6 +48,6 @@ def ma(zhouqi,parent=None):
             print(f"请求失败，状态码: {response.status_code}, 错误信息: {response.text}")
     except requests.exceptions.RequestException as e:
         wx.MessageBox("请求超时，请检查网络连接或代理是否正常配置。", "网络错误", wx.OK | wx.ICON_ERROR, parent)
-        print(1)
+        print(11)
 
 #aaa=ma(30)
