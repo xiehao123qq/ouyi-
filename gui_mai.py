@@ -59,7 +59,7 @@ class MyFrame1 ( wx.Frame ):
         self.num2=0
         bSizer1 = wx.BoxSizer( wx.VERTICAL )
 
-        self.m_staticText5 = wx.StaticText( self, wx.ID_ANY, _(u"欢迎使用易欧交易监控程序"), wx.DefaultPosition, wx.Size( 500,-1 ), wx.ALIGN_CENTER_HORIZONTAL )
+        self.m_staticText5 = wx.StaticText( self, wx.ID_ANY, _(u"欢迎使用欧易交易监控程序"), wx.DefaultPosition, wx.Size( 500,-1 ), wx.ALIGN_CENTER_HORIZONTAL )
         self.m_staticText5.Wrap( -1 )
 
         self.m_staticText5.SetFont( wx.Font( 16, wx.FONTFAMILY_DEFAULT, wx.FONTSTYLE_NORMAL, wx.FONTWEIGHT_BOLD, False, "宋体" ) )
@@ -179,20 +179,21 @@ class MyFrame1 ( wx.Frame ):
         num2=self.num2
         while self.running:
             # 进行计算
-            result=str(ma(30) - ma(120))
+            a=ma(30)-ma(120)
+            result=str(a)
             self.m_textCtrl8.SetValue(result)
             print(f"计算的结果: {result}")
             time1=datetime.now()
             print("现在的时间是"+str(time1))
-            if int(ma(30) - ma(120)) <= num2 and int(ma(30) - ma(120)) >= num1:
+            if int(a) <= num2 and int(a) >= num1:
                 current_time = datetime.now()
                 wx.MessageBox(f"符合预期，现在的时间是{current_time}", "提示", wx.OK | wx.ICON_INFORMATION)
             # 等待 60 秒，但每次只 sleep 1 秒，检查 stop 信号
-            for _ in range(60):
-                if not self.running:
-                    print("任务提前停止")
-                    return
-                time.sleep(1)
+            #for _ in range(60):
+            if not self.running:
+                print("任务提前停止")
+                return
+            time.sleep(1)
 
         print("任务完成")
 
@@ -210,6 +211,7 @@ class MyFrame1 ( wx.Frame ):
         if num2 < num1:
             wx.MessageBox(f"设置有误请重新输入", "提示", wx.OK | wx.ICON_INFORMATION)
             event.Skip()
+            return
         else:
             print(num2-num1)
         """点击 Start 按钮时启动 find_square 方法"""
